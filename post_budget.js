@@ -15,7 +15,7 @@ $("#update").click(function(e) {
     data:dataString,
     url:'insert_query.php',
     success:function(data) {
-      alert("Holla!");
+      alert("Success!");
     }
   });
 });
