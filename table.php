@@ -6,7 +6,7 @@
 </head>
 
 <?php
-$mysqli = new mysqli("localhost", "root", "donkey1h10", "katie");
+$mysqli = new mysqli("localhost", "root", "password", "db");
 
 /* check connection */
 if ($mysqli->connect_errno) {
