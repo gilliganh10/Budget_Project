@@ -28,16 +28,16 @@ $result = $mysqli->query($query);
 $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $rows1 = json_encode ($row);
 
-
-$book = json_decode ($rows1, true);
-$mon = $book[0]['budget'];
-$tue = $book[1]['budget'];
-$wed = $book[2]['budget'];
-$thu = $book[3]['budget'];
-$fri = $book[4]['budget'];
-$sat = $book[5]['budget'];
-$sun = $book[6]['budget'];
-//Budget
+//Decode JSON array into individual objects.
+$daily_b = json_decode ($rows1, true);
+$mon = $daily_b[0]['budget'];
+$tue = $daily_b[1]['budget'];
+$wed = $daily_b[2]['budget'];
+$thu = $daily_b[3]['budget'];
+$fri = $daily_b[4]['budget'];
+$sat = $daily_b[5]['budget'];
+$sun = $daily_b[6]['budget'];
+//Daily budgets created by accessing the weekly budget and subtracting the daily spent figures.
 
 //Monday
 $monb = round($week/7, 2);
@@ -58,6 +58,7 @@ $sunb = round(($week - $mon - $tue - $wed - $thu - $fri - $sat), 2);
 $saved = round(($week - $mon - $tue - $wed - $thu - $fri - $sat - $sun), 2);
 ?>
 <body class="dan">
+
   <ul>
     <li><a href="weekly_input.php">Input</a></li>
     <li><a href="table.php">Live Budget</a></li>
